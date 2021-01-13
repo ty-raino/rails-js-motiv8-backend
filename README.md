@@ -1,23 +1,39 @@
-# README
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Rails JS Motive8 App Backend
 
-Things you may want to cover:
+## motive8 - single page app with 3 daily questions to ask yourself before starting your day
 
-* Ruby version
 
-* System dependencies
+```rb
+post
+has_many :post_hashtags
+has_many :hashtags, through: :post_hashtags
 
-* Configuration
+t.string “content”
+t.integer “love”
 
-* Database creation
+t.datetime “created_at”
+t.datetime “updated_at”
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+hashtag 
+has_many :post_hashtags
+has_many :posts, through: :post_hashtags
 
-* Deployment instructions
+t.string “tag_content”
 
-* ...
+t.datetime “created_at”
+t.datetime “updated_at”
+
+
+
+post_hashtag
+belong_to :post
+belong_to :hastag
+
+t.integer “post_id”
+t.integer “hashtag_id”
+
+t.datetime “created_at”
+t.datetime “updated_at”
+
